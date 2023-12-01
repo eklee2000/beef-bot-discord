@@ -12,7 +12,7 @@ module.exports = {
     name: Events.MessageCreate,
     once: false,
     execute(MessageEvent) {
-        if (secArray.some(substring => MessageEvent.content.toLowerCase().includes(substring))) {
+        if (secArray.some(substring => MessageEvent.content.toLowerCase().includes(substring)) && !MessageEvent.author.bot) {
             channel = MessageEvent.channel
             channel.send({ files: [oneImagePath]})
         }

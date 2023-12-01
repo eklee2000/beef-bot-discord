@@ -35,7 +35,7 @@ championSpellings.set("xin zhao", "xinzhao")
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('counter')
-        .setDescription('Return list of counter picks for a given champion')
+        .setDescription('Return list of counter picks (from u.gg) for a given champion')
         .addStringOption( option =>
             option.setName('champion')
                 .setDescription('The champion you want counters for')

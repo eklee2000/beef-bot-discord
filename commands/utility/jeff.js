@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
-const jeffImagePath = './images/jeff-mock-spongebob.png'
+const jeffImagePath = './resources/jeff-mock-spongebob.png'
 
 module.exports = {
     data: new SlashCommandBuilder()

@@ -59,8 +59,8 @@ module.exports = {
         if (role == null) {
             role = ""
         }
+        await interaction.deferReply();
         getCounters(interaction, champ, role)
-        // await interaction.reply(`${counters}`);
     },
 };
 
@@ -110,7 +110,7 @@ const getCounters = async (interaction, champion, role = '') => {
     browser.close()
     text = formatResultText(counters, champ, selectedRole)
 
-    interaction.reply(text)
+    interaction.editReply(text)
 
 }
 

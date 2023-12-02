@@ -102,7 +102,12 @@ const getCounters = async (interaction, champion, role = '') => {
 
     const selectedRole = await page.evaluate(() => {
         const SLASH_OFFSET = 1
-        const hrefString = document.querySelector('.active.role-filter').getAttribute('href')
+        const hrefString = document.querySelector('.active.role-filter')
+        if (hrefString == null) {
+            return "undefined"
+        } else {
+            hrefString = hrefString.getAttribute('href')
+        }
         role = hrefString.slice(hrefString.lastIndexOf('/') + SLASH_OFFSET)
         return role
     })

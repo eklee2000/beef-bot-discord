@@ -6,7 +6,7 @@ const secArray = ["gimme a sec",
 "gimmie a sec",
 "one sec"]
 
-const oneImagePath = './images/bugs-bunny-one.png'
+const oneImagePath = './resources/bugs-bunny-one.png'
 
 module.exports = {
     name: Events.MessageCreate,

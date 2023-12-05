@@ -5,7 +5,7 @@ module.exports = {
     once: false,
     execute(MessageEvent) {
         if (MessageEvent.content.toLowerCase().includes("renata") && !MessageEvent.author.bot) {
-            channel = MessageEvent.channel
+            let channel = MessageEvent.channel
             channel.send("Actually, Amumu is better here")
         }
     }

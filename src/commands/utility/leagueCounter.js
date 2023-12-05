@@ -4,6 +4,7 @@ const champNamesJson = require('../../champNames.json')
 
 const baseURL = "https://u.gg/lol/champions/"
 const BUILD = "/build/"
+//numCounters MUST BE 10 OR BELOW (u.gg only lists 10 in toughest matchups section)
 const numCounters = 5
 const errorText = "Check the spelling of this champion: "
 const CHAMPION_NAME_INDEX = 0
@@ -102,7 +103,7 @@ const getCounters = async (interaction, champion, role = '') => {
 
     const selectedRole = await page.evaluate(() => {
         const SLASH_OFFSET = 1
-        const hrefString = document.querySelector('.active.role-filter')
+        let hrefString = document.querySelector('.active.role-filter')
         if (hrefString == null) {
             return "undefined"
         } else {

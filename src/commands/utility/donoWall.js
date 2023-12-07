@@ -1,12 +1,13 @@
 const { SlashCommandBuilder } = require('discord.js');
+const path = require('node:path')
 
-const donoWallImagePath = './resources/dono-wall.gif'
+const resourcePath = path.join(__dirname, '../../resources/dono-wall.gif')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('donowall')
         .setDescription('donowalled'),
     async execute(interaction) {
-        await interaction.reply({ files: [donoWallImagePath]});
+        await interaction.reply({ files: [resourcePath]});
     },
 };

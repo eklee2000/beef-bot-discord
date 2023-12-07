@@ -3,9 +3,9 @@ const {DateTime} = require ('luxon');
 const PACIFIC = 'America/Los_Angeles'
 const CENTRAL = 'America/Chicago'
 const EASTERN = 'America/New_York'
-const PST = 'PST'
-const CST = 'CST'
-const EST = 'EST'
+const PT = 'PT'
+const CT = 'CT'
+const ET = 'ET'
 const AM = 'AM'
 const PM = 'PM'
 const AMONG_US_ROLE = '754917499715452989'
@@ -63,9 +63,9 @@ module.exports = {
 
 function formatFlexTimesArray(dt) {
     let flexTimes = []
-    flexTimes.push(formatTimezoneChange(dt, PACIFIC, PST))
-    flexTimes.push(formatTimezoneChange(dt, CENTRAL, CST))
-    flexTimes.push(formatTimezoneChange(dt, EASTERN, EST))
+    flexTimes.push(formatTimezoneChange(dt, PACIFIC, PT))
+    flexTimes.push(formatTimezoneChange(dt, CENTRAL, CT))
+    flexTimes.push(formatTimezoneChange(dt, EASTERN, ET))
     return flexTimes
 }
 
@@ -89,6 +89,12 @@ function isTimeInputValid(time) {
     let minute = time.split(":")[1]
     if (hour.length < 1 && hour.length > 2) {
         return false
+    }
+    if (parseInt(hour) > 12) {
+      return false
+    }
+    if (parseInt(minute) > 59) {
+      return false
     }
     console.log(regex.test(hour))
     if (!regex.test(hour)) {
